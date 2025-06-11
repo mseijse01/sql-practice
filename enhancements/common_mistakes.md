@@ -1,18 +1,18 @@
-# ⚠️ SQL Common Mistakes Guide
+# SQL Common Mistakes Guide
 
 Learn from the most common SQL errors and avoid these pitfalls. This guide shows what goes wrong, why it happens, and how to fix it.
 
-## 🎯 How to Use This Guide
-- 🚨 **See the mistake** to recognize the pattern
-- 💡 **Understand why it's wrong** to avoid similar errors
-- ✅ **Learn the correct approach** with explanations
-- 🔄 **Practice the fix** until it becomes natural
+## How to Use This Guide
+- See the mistake to recognize the pattern
+- Understand why it's wrong to avoid similar errors
+- Learn the correct approach with explanations
+- Practice the fix until it becomes natural
 
 ---
 
-## 📊 Module 1: Basic SELECT Mistakes
+## Module 1: Basic SELECT Mistakes
 
-### ❌ Mistake 1.1: Forgetting Quotes Around Text Values
+### Mistake 1.1: Forgetting Quotes Around Text Values
 
 **Wrong:**
 ```sql
@@ -23,7 +23,7 @@ SELECT * FROM employees WHERE first_name = John;
 
 **Why it's wrong:** SQL treats `John` as a column name, not a text value.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees WHERE first_name = 'John';
 ```
@@ -32,7 +32,7 @@ SELECT * FROM employees WHERE first_name = 'John';
 
 ---
 
-### ❌ Mistake 1.2: Using = Instead of LIKE for Pattern Matching
+### Mistake 1.2: Using = Instead of LIKE for Pattern Matching
 
 **Wrong:**
 ```sql
@@ -41,7 +41,7 @@ SELECT * FROM employees WHERE first_name = 'J%';
 
 **Problem:** This looks for someone literally named "J%" (including the % symbol).
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees WHERE first_name LIKE 'J%';
 ```
@@ -50,7 +50,7 @@ SELECT * FROM employees WHERE first_name LIKE 'J%';
 
 ---
 
-### ❌ Mistake 1.3: Confusing AND/OR Logic
+### Mistake 1.3: Confusing AND/OR Logic
 
 **Wrong:**
 ```sql
@@ -63,7 +63,7 @@ WHERE department = 'Sales' OR department = 'Marketing' AND salary > 50000;
 - ALL Sales employees (regardless of salary)
 - Marketing employees with salary > 50000
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees 
 WHERE (department = 'Sales' OR department = 'Marketing') AND salary > 50000;
@@ -73,7 +73,7 @@ WHERE (department = 'Sales' OR department = 'Marketing') AND salary > 50000;
 
 ---
 
-### ❌ Mistake 1.4: Wrong ORDER BY with LIMIT
+### Mistake 1.4: Wrong ORDER BY with LIMIT
 
 **Wrong:**
 ```sql
@@ -83,7 +83,7 @@ SELECT * FROM employees ORDER BY salary LIMIT 5;
 
 **Problem:** This gets the 5 LOWEST-paid employees (ascending order is default).
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees ORDER BY salary DESC LIMIT 5;
 ```
@@ -92,9 +92,9 @@ SELECT * FROM employees ORDER BY salary DESC LIMIT 5;
 
 ---
 
-## 🔗 Module 2: JOIN Mistakes
+## Module 2: JOIN Mistakes
 
-### ❌ Mistake 2.1: Missing JOIN Condition
+### Mistake 2.1: Missing JOIN Condition
 
 **Wrong:**
 ```sql
@@ -104,7 +104,7 @@ FROM employees e, departments d;
 
 **Problem:** Creates a Cartesian product - every employee paired with every department.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT e.first_name, d.department_name
 FROM employees e
@@ -115,7 +115,7 @@ INNER JOIN departments d ON e.department_id = d.department_id;
 
 ---
 
-### ❌ Mistake 2.2: Using Wrong JOIN Type
+### Mistake 2.2: Using Wrong JOIN Type
 
 **Wrong:**
 ```sql
@@ -127,7 +127,7 @@ INNER JOIN departments d ON e.department_id = d.department_id;
 
 **Problem:** INNER JOIN excludes employees without departments.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT e.first_name, d.department_name
 FROM employees e
@@ -138,7 +138,7 @@ LEFT JOIN departments d ON e.department_id = d.department_id;
 
 ---
 
-### ❌ Mistake 2.3: Ambiguous Column Names
+### Mistake 2.3: Ambiguous Column Names
 
 **Wrong:**
 ```sql
@@ -149,7 +149,7 @@ INNER JOIN departments d ON e.department_id = d.department_id;
 
 **Error:** `Error: ambiguous column name: employee_id` (if both tables have this column)
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT e.employee_id, e.first_name, d.department_name
 FROM employees e
@@ -160,7 +160,7 @@ INNER JOIN departments d ON e.department_id = d.department_id;
 
 ---
 
-### ❌ Mistake 2.4: Self-Join Without Proper Aliases
+### Mistake 2.4: Self-Join Without Proper Aliases
 
 **Wrong:**
 ```sql
@@ -172,7 +172,7 @@ INNER JOIN employees e2 ON e1.manager_id = e2.employee_id;
 
 **Error:** `Error: ambiguous column name: first_name`
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT e1.first_name as employee, e2.first_name as manager
 FROM employees e1
@@ -183,9 +183,9 @@ INNER JOIN employees e2 ON e1.manager_id = e2.employee_id;
 
 ---
 
-## 📈 Module 3: GROUP BY Mistakes
+## Module 3: GROUP BY Mistakes
 
-### ❌ Mistake 3.1: Non-Aggregate Column Not in GROUP BY
+### Mistake 3.1: Non-Aggregate Column Not in GROUP BY
 
 **Wrong:**
 ```sql
@@ -198,14 +198,14 @@ GROUP BY department;
 
 **Why it's wrong:** SQL doesn't know which `first_name` to show for each department.
 
-**✅ Correct Option 1 (Remove non-aggregate column):**
+**Correct Option 1 (Remove non-aggregate column):**
 ```sql
 SELECT department, COUNT(*)
 FROM employees
 GROUP BY department;
 ```
 
-**✅ Correct Option 2 (Add to GROUP BY):**
+**Correct Option 2 (Add to GROUP BY):**
 ```sql
 SELECT department, first_name, COUNT(*)
 FROM employees
@@ -216,7 +216,7 @@ GROUP BY department, first_name;
 
 ---
 
-### ❌ Mistake 3.2: Using WHERE Instead of HAVING with Aggregates
+### Mistake 3.2: Using WHERE Instead of HAVING with Aggregates
 
 **Wrong:**
 ```sql
@@ -228,7 +228,7 @@ WHERE COUNT(*) > 5;
 
 **Error:** Cannot use aggregate functions in WHERE clause.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT department, COUNT(*) as employee_count
 FROM employees
@@ -240,7 +240,7 @@ HAVING COUNT(*) > 5;
 
 ---
 
-### ❌ Mistake 3.3: Wrong Order of Clauses
+### Mistake 3.3: Wrong Order of Clauses
 
 **Wrong:**
 ```sql
@@ -253,7 +253,7 @@ HAVING COUNT(*) > 2;
 
 **Error:** WHERE must come before GROUP BY.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT department, COUNT(*) as employee_count
 FROM employees
@@ -266,7 +266,7 @@ HAVING COUNT(*) > 2;
 
 ---
 
-### ❌ Mistake 3.4: Misunderstanding COUNT() vs COUNT(*)
+### Mistake 3.4: Misunderstanding COUNT() vs COUNT(*)
 
 **Wrong assumption:**
 ```sql
@@ -277,7 +277,7 @@ SELECT COUNT(*) FROM employees;           -- Result: 8
 
 **Problem:** `COUNT(column)` ignores NULL values, `COUNT(*)` counts all rows.
 
-**✅ When to use each:**
+**When to use each:**
 ```sql
 -- Count all employees (including those without managers)
 SELECT COUNT(*) FROM employees;
@@ -293,9 +293,9 @@ SELECT COUNT(salary) FROM employees;
 
 ---
 
-## 🔍 Module 4: Subquery Mistakes
+## Module 4: Subquery Mistakes
 
-### ❌ Mistake 4.1: Using = Instead of IN with Multiple Results
+### Mistake 4.1: Using = Instead of IN with Multiple Results
 
 **Wrong:**
 ```sql
@@ -308,7 +308,7 @@ WHERE department_id = (
 
 **Error:** Subquery returns more than one row (if multiple Sales departments exist).
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees
 WHERE department_id IN (
@@ -321,7 +321,7 @@ WHERE department_id IN (
 
 ---
 
-### ❌ Mistake 4.2: Correlated Subquery Performance Issues
+### Mistake 4.2: Correlated Subquery Performance Issues
 
 **Inefficient:**
 ```sql
@@ -335,7 +335,7 @@ WHERE salary > (
 
 **Problem:** Subquery runs once for each employee row (very slow).
 
-**✅ More Efficient (using window functions):**
+**More Efficient (using window functions):**
 ```sql
 SELECT employee_id, first_name, salary, department_id
 FROM (
@@ -350,7 +350,7 @@ WHERE salary > dept_avg;
 
 ---
 
-### ❌ Mistake 4.3: NOT IN with NULL Values
+### Mistake 4.3: NOT IN with NULL Values
 
 **Wrong:**
 ```sql
@@ -362,7 +362,7 @@ WHERE department_id NOT IN (
 
 **Problem:** If any department has NULL budget, NOT IN returns no results.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees
 WHERE department_id NOT IN (
@@ -384,9 +384,9 @@ WHERE NOT EXISTS (
 
 ---
 
-## ❓ Module 5: NULL Handling Mistakes
+## Module 5: NULL Handling Mistakes
 
-### ❌ Mistake 5.1: Using = NULL Instead of IS NULL
+### Mistake 5.1: Using = NULL Instead of IS NULL
 
 **Wrong:**
 ```sql
@@ -395,7 +395,7 @@ SELECT * FROM employees WHERE manager_id = NULL;
 
 **Problem:** Returns no results. `= NULL` always evaluates to unknown, not true.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM employees WHERE manager_id IS NULL;
 ```
@@ -404,7 +404,7 @@ SELECT * FROM employees WHERE manager_id IS NULL;
 
 ---
 
-### ❌ Mistake 5.2: Forgetting NULL Impact on Calculations
+### Mistake 5.2: Forgetting NULL Impact on Calculations
 
 **Wrong assumption:**
 ```sql
@@ -415,7 +415,7 @@ FROM employees;
 
 **Problem:** Any calculation with NULL results in NULL.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT employee_id, salary, 
        CASE 
@@ -434,7 +434,7 @@ FROM employees;
 
 ---
 
-### ❌ Mistake 5.3: Misunderstanding COALESCE
+### Mistake 5.3: Misunderstanding COALESCE
 
 **Wrong:**
 ```sql
@@ -444,7 +444,7 @@ SELECT COALESCE(department, 'Sales', 'Unknown') FROM employees;
 
 **Problem:** COALESCE returns the first non-NULL value, not conditional logic.
 
-**✅ Correct understanding:**
+**Correct understanding:**
 ```sql
 -- COALESCE returns first non-NULL value
 SELECT COALESCE(department, 'Unknown') FROM employees;
@@ -460,9 +460,9 @@ END FROM employees;
 
 ---
 
-## 📊 Module 6: Window Function Mistakes
+## Module 6: Window Function Mistakes
 
-### ❌ Mistake 6.1: Forgetting OVER() Clause
+### Mistake 6.1: Forgetting OVER() Clause
 
 **Wrong:**
 ```sql
@@ -472,7 +472,7 @@ FROM employees;
 
 **Error:** Window functions require OVER() clause.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT first_name, salary, RANK() OVER (ORDER BY salary DESC) as salary_rank
 FROM employees;
@@ -482,7 +482,7 @@ FROM employees;
 
 ---
 
-### ❌ Mistake 6.2: Confusing RANK() vs ROW_NUMBER()
+### Mistake 6.2: Confusing RANK() vs ROW_NUMBER()
 
 **Wrong expectation:**
 ```sql
@@ -493,7 +493,7 @@ FROM employees;
 
 **Problem:** RANK() gives same rank to tied values and skips numbers.
 
-**✅ Choose the right function:**
+**Choose the right function:**
 ```sql
 -- For unique sequential numbers (1, 2, 3, 4)
 SELECT first_name, salary, ROW_NUMBER() OVER (ORDER BY salary DESC) as row_num
@@ -512,7 +512,7 @@ FROM employees;
 
 ---
 
-### ❌ Mistake 6.3: Wrong PARTITION BY Usage
+### Mistake 6.3: Wrong PARTITION BY Usage
 
 **Wrong:**
 ```sql
@@ -524,7 +524,7 @@ FROM employees;
 
 **Problem:** Missing PARTITION BY, so ranking is global, not per department.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT first_name, department, salary, 
        RANK() OVER (PARTITION BY department ORDER BY salary DESC) as dept_rank
@@ -535,9 +535,9 @@ FROM employees;
 
 ---
 
-## 🏗️ Module 7: CTE Mistakes
+## Module 7: CTE Mistakes
 
-### ❌ Mistake 7.1: Trying to Reference CTE Multiple Times
+### Mistake 7.1: Trying to Reference CTE Multiple Times
 
 **Wrong:**
 ```sql
@@ -551,7 +551,7 @@ SELECT * FROM high_earners WHERE department = 'Sales';
 
 **Error:** Cannot reference CTE multiple times in same query level.
 
-**✅ Correct approach:**
+**Correct approach:**
 ```sql
 WITH high_earners AS (
     SELECT * FROM employees WHERE salary > 80000
@@ -574,7 +574,7 @@ FROM high_earners;
 
 ---
 
-### ❌ Mistake 7.2: Missing Base Case in Recursive CTE
+### Mistake 7.2: Missing Base Case in Recursive CTE
 
 **Wrong:**
 ```sql
@@ -594,7 +594,7 @@ SELECT * FROM employee_hierarchy;
 
 **Problem:** No base case (starting point), may cause infinite recursion.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 WITH RECURSIVE employee_hierarchy AS (
     -- Base case: top-level employees
@@ -616,9 +616,9 @@ SELECT * FROM employee_hierarchy;
 
 ---
 
-## 🎯 Performance & Best Practice Mistakes
+## Performance & Best Practice Mistakes
 
-### ❌ Mistake 8.1: Using SELECT * in Production
+### Mistake 8.1: Using SELECT * in Production
 
 **Wrong:**
 ```sql
@@ -630,7 +630,7 @@ SELECT * FROM employees WHERE department = 'Sales';
 - Breaks when table structure changes
 - Poor performance with large tables
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT employee_id, first_name, last_name, salary
 FROM employees 
@@ -641,7 +641,7 @@ WHERE department = 'Sales';
 
 ---
 
-### ❌ Mistake 8.2: No LIMIT on Exploratory Queries
+### Mistake 8.2: No LIMIT on Exploratory Queries
 
 **Wrong:**
 ```sql
@@ -651,7 +651,7 @@ SELECT * FROM order_history WHERE order_date > '2020-01-01';
 
 **Problem:** May return millions of rows and crash your system.
 
-**✅ Correct:**
+**Correct:**
 ```sql
 SELECT * FROM order_history 
 WHERE order_date > '2020-01-01'
@@ -662,7 +662,7 @@ LIMIT 100;  -- Safe exploration
 
 ---
 
-### ❌ Mistake 8.3: Using Functions in WHERE Clause
+### Mistake 8.3: Using Functions in WHERE Clause
 
 **Inefficient:**
 ```sql
@@ -671,7 +671,7 @@ SELECT * FROM orders WHERE YEAR(order_date) = 2023;
 
 **Problem:** Function on column prevents index usage.
 
-**✅ More Efficient:**
+**More Efficient:**
 ```sql
 SELECT * FROM orders 
 WHERE order_date >= '2023-01-01' AND order_date < '2024-01-01';
@@ -681,7 +681,7 @@ WHERE order_date >= '2023-01-01' AND order_date < '2024-01-01';
 
 ---
 
-## 🚨 Quick Reference: Error Prevention Checklist
+## Quick Reference: Error Prevention Checklist
 
 ### Before Running Any Query:
 - [ ] **Text values** in single quotes
@@ -693,12 +693,12 @@ WHERE order_date >= '2023-01-01' AND order_date < '2024-01-01';
 - [ ] **Syntax order**: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY
 
 ### Common Red Flags:
-- 🚨 `= NULL` instead of `IS NULL`
-- 🚨 `WHERE` with aggregate functions (use `HAVING`)
-- 🚨 Window functions without `OVER()`
-- 🚨 `NOT IN` with potential NULL values
-- 🚨 Missing quotes around text values
-- 🚨 `SELECT *` in production code
+- `= NULL` instead of `IS NULL`
+- `WHERE` with aggregate functions (use `HAVING`)
+- Window functions without `OVER()`
+- `NOT IN` with potential NULL values
+- Missing quotes around text values
+- `SELECT *` in production code
 
 ### When Debugging Errors:
 1. **Check syntax order** - clauses must be in correct sequence
@@ -709,7 +709,7 @@ WHERE order_date >= '2023-01-01' AND order_date < '2024-01-01';
 
 ---
 
-## 🎓 Learning from Mistakes
+## Learning from Mistakes
 
 ### Best Practices:
 1. **Start simple** - build complex queries incrementally

@@ -326,41 +326,41 @@ your-practice/
 - Clear explanation of approach
 - Understanding of performance implications
 
-## 🎯 Learning Enhancements
+## Learning Enhancements
 
 Take your SQL learning to the next level with these interactive tools and guides:
 
-### 📚 [`enhancements/`](enhancements/) - Learning Support Tools
+### [`enhancements/`](enhancements/) - Learning Support Tools
 
-#### 🧠 **Self-Assessment Quiz** ([`self_assessment_quiz.md`](enhancements/self_assessment_quiz.md))
+#### **Self-Assessment Quiz** ([`self_assessment_quiz.md`](enhancements/self_assessment_quiz.md))
 - Interactive multiple-choice questions for all 7 modules
 - Detailed explanations for each answer
 - Progressive difficulty levels (beginner → advanced)
 - Score tracking and performance guidance
 - Perfect for testing your understanding before moving forward
 
-#### 🔍 **Query Explanations Guide** ([`query_explanations.md`](enhancements/query_explanations.md))
+#### **Query Explanations Guide** ([`query_explanations.md`](enhancements/query_explanations.md))
 - Step-by-step breakdowns of complex SQL queries
 - Deep dives into window functions, CTEs, and advanced patterns
 - "Why" behind each query decision
 - Pattern recognition for different use cases
 - Perfect for understanding the logic behind advanced SQL
 
-#### ⚠️ **Common Mistakes Guide** ([`common_mistakes.md`](enhancements/common_mistakes.md))
+#### **Common Mistakes Guide** ([`common_mistakes.md`](enhancements/common_mistakes.md))
 - Learn from typical SQL errors and pitfalls
 - Wrong vs. right approaches with explanations
 - Organized by topic and difficulty level
 - Quick reference checklist for error prevention
 - Perfect for avoiding common interview mistakes
 
-#### 🎯 **Progress Tracker** ([`progress_tracker.md`](enhancements/progress_tracker.md))
+#### **Progress Tracker** ([`progress_tracker.md`](enhancements/progress_tracker.md))
 - Gamified learning system with achievements and milestones
 - Skill checkpoints for each module
 - Interview readiness assessment
 - Personal goal setting and progress visualization
 - Perfect for staying motivated and tracking your growth
 
-### 🎮 How to Use the Enhancements
+### How to Use the Enhancements
 1. **Start with the Progress Tracker** to set your learning goals
 2. **Use Self-Assessment Quizzes** to test your knowledge after each module
 3. **Reference Common Mistakes** when debugging queries or before interviews
