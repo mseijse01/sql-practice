@@ -1,16 +1,16 @@
-# 🔍 SQL Query Explanations Guide
+# SQL Query Explanations Guide
 
 Deep dive into complex SQL queries with step-by-step breakdowns. This guide demystifies challenging concepts and helps you understand the logic behind advanced SQL patterns.
 
-## 📚 How to Use This Guide
-- 🧩 **Start with the full query** to see the complete picture
-- 📖 **Follow the step-by-step breakdown** to understand each part
-- 💡 **Focus on the "Why"** behind each decision
-- 🎯 **Try variations** to test your understanding
+## How to Use This Guide
+- Start with the full query to see the complete picture
+- Follow the step-by-step breakdown to understand each part
+- Focus on the "Why" behind each decision
+- Try variations to test your understanding
 
 ---
 
-## 🔗 Complex JOIN with Self-Reference
+## Complex JOIN with Self-Reference
 
 ### The Query:
 ```sql
@@ -26,7 +26,7 @@ WHERE e1.is_active = 1
 ORDER BY d.department_name, e1.salary DESC;
 ```
 
-### 🧩 Step-by-Step Breakdown:
+### Step-by-Step Breakdown:
 
 #### Step 1: Table Aliases and Self-Join Setup
 ```sql
@@ -67,7 +67,7 @@ ORDER BY d.department_name, e1.salary DESC;
 - Only show active employees
 - Sort by department first, then highest salary within each department
 
-### 💡 Key Learning Points:
+### Key Learning Points:
 1. **Self-joins** let you relate records within the same table
 2. **LEFT JOIN** preserves unmatched records (employees without managers)
 3. **Window functions** add calculations without collapsing rows
@@ -75,7 +75,7 @@ ORDER BY d.department_name, e1.salary DESC;
 
 ---
 
-## 📊 Advanced Window Function with Multiple Rankings
+## Advanced Window Function with Multiple Rankings
 
 ### The Query:
 ```sql
@@ -103,7 +103,7 @@ FROM customer_metrics
 ORDER BY total_spent DESC;
 ```
 
-### 🧩 Step-by-Step Breakdown:
+### Step-by-Step Breakdown:
 
 #### Step 1: CTE for Data Preparation
 ```sql
@@ -159,7 +159,7 @@ END as customer_tier
 - **Above average** = good customers
 - **Everyone else** = Standard tier
 
-### 💡 Key Learning Points:
+### Key Learning Points:
 1. **CTEs** simplify complex queries by breaking them into logical steps
 2. **Multiple window functions** can provide different analytical perspectives
 3. **OVER ()** with no PARTITION BY means "entire dataset"
@@ -167,7 +167,7 @@ END as customer_tier
 
 ---
 
-## 🔄 Recursive CTE for Hierarchical Data
+## Recursive CTE for Hierarchical Data
 
 ### The Query:
 ```sql
@@ -204,7 +204,7 @@ FROM employee_hierarchy
 ORDER BY hierarchy_path;
 ```
 
-### 🧩 Step-by-Step Breakdown:
+### Step-by-Step Breakdown:
 
 #### Step 1: Understanding Recursive CTE Structure
 ```sql
@@ -279,7 +279,7 @@ ORDER BY hierarchy_path;
 - **CASE statement** provides business-friendly level names
 - **ORDER BY hierarchy_path** keeps related employees together
 
-### 💡 Key Learning Points:
+### Key Learning Points:
 1. **Recursive CTEs** handle hierarchical data (org charts, categories, etc.)
 2. **Base case** prevents infinite loops by defining starting point
 3. **Level tracking** helps understand depth in hierarchy
@@ -287,7 +287,7 @@ ORDER BY hierarchy_path;
 
 ---
 
-## 📅 Complex Date Analysis with Window Functions
+## Complex Date Analysis with Window Functions
 
 ### The Query:
 ```sql
@@ -313,7 +313,7 @@ FROM monthly_product_sales
 ORDER BY product_name, month;
 ```
 
-### 🧩 Step-by-Step Breakdown:
+### Step-by-Step Breakdown:
 
 #### Step 1: Monthly Aggregation Setup
 ```sql
@@ -367,7 +367,7 @@ END as month_over_month_pct_change
 - **ROUND()** keeps results to 2 decimal places
 - **100.0** ensures decimal division
 
-### 💡 Key Learning Points:
+### Key Learning Points:
 1. **Date functions** like strftime() enable time-based grouping
 2. **LAG/LEAD** functions compare current row with previous/next row
 3. **PARTITION BY** keeps related data together for window calculations
@@ -375,47 +375,47 @@ END as month_over_month_pct_change
 
 ---
 
-## 🎯 Query Pattern Recognition
+## Query Pattern Recognition
 
 ### When to Use Each Pattern:
 
 #### **Self-Joins** 
-✅ **Use for:** Employee-manager relationships, product categories, any hierarchical data in one table
-🔧 **Key technique:** Same table with different aliases
+Use for: Employee-manager relationships, product categories, any hierarchical data in one table
+Key technique: Same table with different aliases
 
 #### **Window Functions**
-✅ **Use for:** Rankings, running totals, period-over-period comparisons, analytics
-🔧 **Key technique:** OVER() clause with optional PARTITION BY and ORDER BY
+Use for: Rankings, running totals, period-over-period comparisons, analytics
+Key technique: OVER() clause with optional PARTITION BY and ORDER BY
 
 #### **Recursive CTEs**
-✅ **Use for:** Organizational charts, bill of materials, category trees, path finding
-🔧 **Key technique:** Base case + recursive case with UNION ALL
+Use for: Organizational charts, bill of materials, category trees, path finding
+Key technique: Base case + recursive case with UNION ALL
 
 #### **LAG/LEAD Functions**
-✅ **Use for:** Trend analysis, comparing with previous/next periods
-🔧 **Key technique:** PARTITION BY for grouping, ORDER BY for sequence
+Use for: Trend analysis, comparing with previous/next periods
+Key technique: PARTITION BY for grouping, ORDER BY for sequence
 
 ---
 
-## 🚀 Practice Recommendations
+## Practice Recommendations
 
 ### After Reading These Explanations:
 
-1. **🔧 Modify the Queries**
+1. **Modify the Queries**
    - Change the window function partitions
    - Add different ranking functions
    - Experiment with date ranges
 
-2. **📊 Apply to Your Data**
+2. **Apply to Your Data**
    - Try similar patterns on your own datasets
    - Adapt the business logic to your use cases
 
-3. **🎯 Build Complexity Gradually**
+3. **Build Complexity Gradually**
    - Start with simple window functions
    - Add CTEs for organization
    - Combine multiple advanced features
 
-4. **💡 Focus on Business Value**
+4. **Focus on Business Value**
    - Always ask "What business question does this answer?"
    - Ensure your queries solve real problems
 

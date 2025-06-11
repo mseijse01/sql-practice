@@ -1,16 +1,16 @@
-# 🧠 SQL Self-Assessment Quiz
+# SQL Self-Assessment Quiz
 
 Test your understanding of SQL concepts with this comprehensive quiz. Each module has questions ranging from beginner to advanced levels.
 
 ## How to Use This Quiz
-- ✅ Answer each question honestly before checking the solution
-- 📊 Track your score to identify knowledge gaps  
-- 🔄 Retake sections after studying to measure improvement
-- 🎯 Aim for 80%+ before moving to the next module
+- Answer each question honestly before checking the solution
+- Track your score to identify knowledge gaps  
+- Retake sections after studying to measure improvement
+- Aim for 80%+ before moving to the next module
 
 ---
 
-## 📊 Module 1: Basic SELECT Operations
+## Module 1: Basic SELECT Operations
 
 ### Question 1.1 (Beginner)
 **What is the correct SQL syntax to select only the `first_name` and `last_name` columns from an `employees` table?**
@@ -21,9 +21,9 @@ C) `GET first_name, last_name FROM employees;`
 D) `SELECT (first_name, last_name) FROM employees;`
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: A**
+**Correct Answer: A**
 
 **Explanation:** 
 - Option A is the correct syntax for selecting specific columns
@@ -43,9 +43,9 @@ C) `SELECT * FROM employees WHERE salary > 50000 OR salary < 80000 ORDER BY sala
 D) `SELECT * FROM employees HAVING salary BETWEEN 50000 AND 80000 ORDER BY salary DESC;`
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - Option A is missing `DESC` for highest to lowest ordering
@@ -65,9 +65,9 @@ C) All employees with 'J' anywhere in first name and without 'son' anywhere in l
 D) Error - cannot combine LIKE with NOT LIKE
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - `first_name LIKE 'J%'` matches names starting with 'J'
@@ -80,7 +80,7 @@ D) Error - cannot combine LIKE with NOT LIKE
 
 ---
 
-## 🔗 Module 2: JOIN Operations
+## Module 2: JOIN Operations
 
 ### Question 2.1 (Beginner)
 **What is the main difference between INNER JOIN and LEFT JOIN?**
@@ -91,9 +91,9 @@ C) INNER JOIN can join more than 2 tables, LEFT JOIN cannot
 D) There is no difference
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - INNER JOIN returns only records that have matches in both tables
@@ -113,9 +113,9 @@ C) `SELECT * FROM employees WHERE department_id IS NULL;`
 D) Both B and C are correct
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: D**
+**Correct Answer: D**
 
 **Explanation:**
 - Option A won't work because INNER JOIN excludes unmatched records
@@ -135,9 +135,9 @@ C) Creates an error because you can't join a table to itself
 D) Shows duplicate employee records
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: A**
+**Correct Answer: A**
 
 **Explanation:**
 - This is a self-join where the employees table is joined to itself
@@ -150,7 +150,7 @@ D) Shows duplicate employee records
 
 ---
 
-## 📈 Module 3: GROUP BY and Aggregates
+## Module 3: GROUP BY and Aggregates
 
 ### Question 3.1 (Beginner)
 **Which aggregate function would you use to find the total sales amount across all orders?**
@@ -161,9 +161,9 @@ C) `SUM(total_amount)`
 D) `MAX(total_amount)`
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: C**
+**Correct Answer: C**
 
 **Explanation:**
 - `SUM()` adds up all values to get a total
@@ -183,9 +183,9 @@ C) `COUNT(*)` should be `COUNT(product_name)`
 D) Missing HAVING clause
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - All non-aggregate columns in SELECT must be in GROUP BY
@@ -205,9 +205,9 @@ C) HAVING works with text, WHERE works with numbers
 D) They're interchangeable
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - WHERE filters individual rows before grouping occurs
@@ -220,7 +220,7 @@ D) They're interchangeable
 
 ---
 
-## 🔍 Module 4: Subqueries
+## Module 4: Subqueries
 
 ### Question 4.1 (Beginner)
 **What is a subquery?**
@@ -231,9 +231,9 @@ C) A query that uses multiple tables
 D) A query with GROUP BY
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - A subquery is a query within another query, enclosed in parentheses
@@ -253,9 +253,9 @@ C) Derived table
 D) EXISTS subquery
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - Correlated subqueries reference columns from the outer query
@@ -275,9 +275,9 @@ C) IN can handle NULL values better than EXISTS
 D) They're identical in functionality
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - EXISTS returns TRUE/FALSE based on whether subquery returns any rows
@@ -290,7 +290,7 @@ D) They're identical in functionality
 
 ---
 
-## ❓ Module 5: NULL Handling
+## Module 5: NULL Handling
 
 ### Question 5.1 (Beginner)
 **Which operator correctly checks for NULL values?**
@@ -301,9 +301,9 @@ C) `IS NULL`
 D) `EQUALS NULL`
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: C**
+**Correct Answer: C**
 
 **Explanation:**
 - NULL represents unknown/missing data, not a specific value
@@ -323,9 +323,9 @@ C) 'backup'
 D) Error
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - COALESCE returns the first non-NULL value from left to right
@@ -345,9 +345,9 @@ C) COUNT(*) includes NULLs, COUNT(column) and SUM() exclude them
 D) All aggregates treat NULLs the same way
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: C**
+**Correct Answer: C**
 
 **Explanation:**
 - `COUNT(*)` counts all rows including those with NULLs
@@ -360,7 +360,7 @@ D) All aggregates treat NULLs the same way
 
 ---
 
-## 📊 Module 6: Window Functions (Advanced)
+## Module 6: Window Functions (Advanced)
 
 ### Question 6.1 (Intermediate)
 **What's the main difference between GROUP BY and window functions?**
@@ -371,9 +371,9 @@ C) Window functions can't do aggregation
 D) They're the same thing
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - GROUP BY reduces rows by grouping them into summary rows
@@ -393,9 +393,9 @@ C) Limits the number of rows returned
 D) Joins tables together
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - PARTITION BY creates separate "windows" for each group
@@ -415,9 +415,9 @@ C) RANK() can only rank numbers, ROW_NUMBER() works with text
 D) There's no difference
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - ROW_NUMBER() assigns unique sequential numbers (1,2,3,4...)
@@ -430,7 +430,7 @@ D) There's no difference
 
 ---
 
-## 🏗️ Module 7: Common Table Expressions (Advanced)
+## Module 7: Common Table Expressions (Advanced)
 
 ### Question 7.1 (Intermediate)
 **What is the main benefit of using CTEs (Common Table Expressions)?**
@@ -441,9 +441,9 @@ C) They can only be used with SELECT statements
 D) They automatically optimize queries
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - CTEs make complex queries more readable by breaking them into logical steps
@@ -463,9 +463,9 @@ C) When using aggregate functions
 D) Always - it's required for all CTEs
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - RECURSIVE is needed when the CTE references itself in its definition
@@ -485,9 +485,9 @@ C) You must include a LIMIT clause
 D) Recursive CTEs can't create infinite loops
 
 <details>
-<summary>🔍 Click for Answer & Explanation</summary>
+<summary>Click for Answer & Explanation</summary>
 
-**✅ Correct Answer: B**
+**Correct Answer: B**
 
 **Explanation:**
 - Recursion stops when the recursive part returns no new rows
@@ -500,14 +500,14 @@ D) Recursive CTEs can't create infinite loops
 
 ---
 
-## 📊 Quiz Results Tracker
+## Quiz Results Tracker
 
 ### Scoring Guide:
-- **90-100%**: 🌟 Expert Level - Ready for advanced challenges!
-- **80-89%**: ✅ Proficient - Minor review needed
-- **70-79%**: 📚 Good Foundation - Focus on weak areas  
-- **60-69%**: 🔄 Needs Practice - Review concepts and retry
-- **Below 60%**: 📖 Study Required - Work through learning modules
+- **90-100%**: Expert Level - Ready for advanced challenges!
+- **80-89%**: Proficient - Minor review needed
+- **70-79%**: Good Foundation - Focus on weak areas  
+- **60-69%**: Needs Practice - Review concepts and retry
+- **Below 60%**: Study Required - Work through learning modules
 
 ### Track Your Progress:
 ```
@@ -529,7 +529,7 @@ Overall Score: ___/21 (___%)
 
 ---
 
-## 🎯 Quick Reference: Key Concepts to Remember
+## Quick Reference: Key Concepts to Remember
 
 ### Essential SQL Rules:
 1. **SELECT basics**: Column names separated by commas
