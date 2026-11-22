@@ -125,3 +125,6 @@ Built some extra tools to level up the learning experience:
 This repo reflects my own SQL learning journey. Started with basic queries and gradually built up to complex analytics. The scenarios are realistic because I pulled them from actual business problems I've encountered.
 
 *“Mediocrity is invisible until passion shows up to expose it.”*
+## License
+
+[MIT](LICENSE)
