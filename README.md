@@ -116,6 +116,10 @@ Built some extra tools to level up the learning experience:
 - Data quality and NULL handling (module 5)
 - Analytics and rankings (modules 6-7)
 
+## Resources
+
+- [DataLemur](https://datalemur.com): SQL interview questions, and the SQL Interview Cheat Sheet I used alongside these modules
+
 ## Personal Notes
 
 This repo reflects my own SQL learning journey. Started with basic queries and gradually built up to complex analytics. The scenarios are realistic because I pulled them from actual business problems I've encountered.
